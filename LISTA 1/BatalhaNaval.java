@@ -40,6 +40,9 @@ public class BatalhaNaval {
 
         if (vencedor > 0) {
             System.out.println("PLAYER " + vencedor + " WINS! YOU SUNK ALL OF YOUR OPPONENT’S SHIPS!");
+            System.out.println("Final boards:");
+            System.out.println("Jogador 1:"); imprimeMapa(mapaJogador1);
+            System.out.println("Jogador 2:"); imprimeMapa(mapaJogador2);
         }
     }
 
