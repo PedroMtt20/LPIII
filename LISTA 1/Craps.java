@@ -9,10 +9,10 @@ public class Craps {
         boolean estagio2 = false, entradaValida = false;
 
         while (!entradaValida) {
-            System.out.println("Dado 1:");
+            System.out.print("Dado 1:");
             dado1 = scanner.nextInt();
 
-            System.out.println("Dado 2:");
+            System.out.print("Dado 2:");
             dado2 = scanner.nextInt();
 
             pontoJogador = dado1 + dado2;  // Calcula o ponto do jogador com a soma dos dados
@@ -20,9 +20,9 @@ public class Craps {
             entradaValida = validacaoDados(dado1, dado2); // Verifica se os dados são válidos
         }
 
-        if (somaDados == 7 || somaDados == 11) { // se a soma dos dados for 7 ou 11, o jogador ganhou
+        if (pontoJogador == 7 || pontoJogador == 11) { // se a soma dos dados for 7 ou 11, o jogador ganhou
             System.out.println("Você ganhou :)");
-        } else if (somaDados == 2 || somaDados == 3 || somaDados == 12) { // se a soma dos dados for 2, 3 ou 12, o jogador perdeu
+        } else if (pontoJogador == 2 || pontoJogador == 3 || pontoJogador == 12) { // se a soma dos dados for 2, 3 ou 12, o jogador perdeu
             System.out.println("Você perdeu :(");
         } else { // se a soma dos dados for diferente de 2, 3, 7, 11 ou 12, entra no estágio 2
             estagio2 = true;
@@ -33,10 +33,10 @@ public class Craps {
         while (estagio2) {
             entradaValida = false;
             while (!entradaValida) {
-                System.out.println("Dado 1:");
+                System.out.print("Dado 1:");
                 dado1 = scanner.nextInt();
 
-                System.out.println("Dado 2:");
+                System.out.print("Dado 2:");
                 dado2 = scanner.nextInt();
 
                 entradaValida = validacaoDados(dado1, dado2); // Verifica se os dados são válidos
