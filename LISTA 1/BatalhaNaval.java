@@ -1,3 +1,5 @@
+//Nome: Pedro Elias Santiago Mattar
+
 import java.util.Scanner;
 
 public class BatalhaNaval {
@@ -9,24 +11,24 @@ public class BatalhaNaval {
         boolean turnoJogador1 = true;
 
         // gera os mapas de cada jogador
-        mapaJogador1 = geraMapas(mapaJogador1);
-        mapaJogador2 = geraMapas(mapaJogador2);
+        geraMapas(mapaJogador1);
+        geraMapas(mapaJogador2);
 
         System.out.println("Welcome to Battleship!\n\n");
 
         // Solicita e marca as coordenadas dos navios do jogador 1 no mapa
-        coordenadasJogador1 = solicitaCoordenadas(1, coordenadasJogador1);
-        mapaJogador1 = marcaNaviosNoMapa(mapaJogador1, coordenadasJogador1);
+        solicitaCoordenadas(1, coordenadasJogador1);
+        marcaNaviosNoMapa(mapaJogador1, coordenadasJogador1);
         imprimeMapa(mapaJogador1);
 
         // Solicita e marca as coordenadas dos navios do jogador 2 no mapa
-        coordenadasJogador2 = solicitaCoordenadas(2, coordenadasJogador2);
-        mapaJogador2 = marcaNaviosNoMapa(mapaJogador2, coordenadasJogador2);
+        solicitaCoordenadas(2, coordenadasJogador2);
+        marcaNaviosNoMapa(mapaJogador2, coordenadasJogador2);
         imprimeMapa(mapaJogador2);
 
         // Gera os mapas novamente, para ocultar a posição dos navios dos jogadores
-        mapaJogador1 = geraMapas(mapaJogador1);
-        mapaJogador2 = geraMapas(mapaJogador2);
+        geraMapas(mapaJogador1);
+        geraMapas(mapaJogador2);
 
         // Loop principal do jogo
         while (vencedor == 0) {
@@ -41,8 +43,10 @@ public class BatalhaNaval {
         if (vencedor > 0) {
             System.out.println("PLAYER " + vencedor + " WINS! YOU SUNK ALL OF YOUR OPPONENT’S SHIPS!");
             System.out.println("Final boards:");
-            System.out.println("Jogador 1:"); imprimeMapa(mapaJogador1);
-            System.out.println("Jogador 2:"); imprimeMapa(mapaJogador2);
+            System.out.println("Jogador 1:");
+            imprimeMapa(mapaJogador1);
+            System.out.println("Jogador 2:");
+            imprimeMapa(mapaJogador2);
         }
     }
 
@@ -63,7 +67,7 @@ public class BatalhaNaval {
                 if (localJaAtacado) {
                     System.out.println("You already fired on this spot. Choose different coordinates.");
                 } else {
-                    mapaJogador = marcaLocaisMapa(x, y, mapaJogador, coordenadasJogador, jogador, jogador == 1 ? 2 : 1);
+                    marcaLocaisMapa(x, y, mapaJogador, coordenadasJogador, jogador, jogador == 1 ? 2 : 1);
                     imprimeMapa(mapaJogador);
                 }
             }
@@ -86,7 +90,7 @@ public class BatalhaNaval {
 
     // solicita que o jogador informe as coordenadas nas quais os navios serão
     // colocados
-    private static int[][] solicitaCoordenadas(int jogador, int[][] coordenadas) {
+    private static void solicitaCoordenadas(int jogador, int[][] coordenadas) {
         Scanner scanner = new Scanner(System.in);
         boolean entradaValida;
         boolean coordenadaAnteriorValida;
@@ -121,9 +125,6 @@ public class BatalhaNaval {
                 }
             }
         }
-
-        // Retorna a matriz de coordenadas dos navios
-        return coordenadas;
     }
 
     // verifica se todos os navios já foram afundados
@@ -151,7 +152,7 @@ public class BatalhaNaval {
 
     // marca locais de ataque (X) ou locais de erro (O) no mapa do jogador que está
     // sendo atacado
-    public static char[][] marcaLocaisMapa(int x, int y, char[][] mapa, int[][] coordenadas, int jogadorAtaque,
+    public static void marcaLocaisMapa(int x, int y, char[][] mapa, int[][] coordenadas, int jogadorAtaque,
             int jogadorDefesa) {
         boolean acertou = false;
         for (int i = 0; i < coordenadas.length; i++) {
@@ -166,17 +167,15 @@ public class BatalhaNaval {
             mapa[x][y] = 'O';
             System.out.println("PLAYER " + jogadorAtaque + " MISSED!");
         }
-        return mapa;
     }
 
     // marca o local dos navios no mapa
-    public static char[][] marcaNaviosNoMapa(char[][] mapa, int[][] coordenadas) {
+    public static void marcaNaviosNoMapa(char[][] mapa, int[][] coordenadas) {
         for (int i = 0; i < coordenadas.length; i++) {
             int x = coordenadas[i][0];
             int y = coordenadas[i][1];
             mapa[x][y] = '@';
         }
-        return mapa;
     }
 
     // verifica se as coordenadas informadas pelo usuário já não foram informadas
@@ -205,13 +204,12 @@ public class BatalhaNaval {
     }
 
     // gera os mapas de cada jogador
-    public static char[][] geraMapas(char[][] mapa) {
+    public static void geraMapas(char[][] mapa) {
         for (int i = 0; i < 5; i++) {
             for (int k = 0; k < 5; k++) {
                 mapa[i][k] = '-';
             }
         }
-        return mapa;
     }
 
     // valida as coordenadas informadas pelo usuário
