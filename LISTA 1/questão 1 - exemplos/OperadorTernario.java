@@ -1,6 +1,8 @@
+//Nome: Pedro Elias Santiago Mattar
+
 public class OperadorTernario {
     public static void main(String[] args) {
-        int a = 30, b = 40, maiorNum = 0;
+        int a = 60, b = 74, maiorNum = 0;
 
         // o operador ternário é usado para verificar qual valor é maior: a ou b
         // a expressão (a > b) ? a : b verifica se a é maior que b
