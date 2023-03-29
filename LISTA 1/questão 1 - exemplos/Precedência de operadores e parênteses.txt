@@ -1,0 +1,31 @@
+Precedência de operadores e parênteses)
+Quando existem múltiplos operadores em uma expressão, o Java segue uma ordem de precedência bem definida. Como podemos ver na tabela:
+
+Nível de Precedência	Operador
+1	() (expressões entre parênteses)
+2	++ -- (pós-fixado)
+3	++ -- (pré-fixado), + - (unário), ! ~
+4	* / %
+5	+ -
+6	<< >> >>>
+7	< <= > >= instanceof
+8	== !=
+9	&
+10	^
+11	|
+12	&&
+13	||
+14	?:
+15	= += -= *= /= %= &= ^= |= <<= >>= >>>=
+Quando uma expressão tem operadores de diferentes níveis de precedência, a ordem de execução é determinada pela tabela acima. Por exemplo, na expressão 9 + 10 * 5, a multiplicação é executada antes da adição, porque o operador * tem precedência maior do que o operador +. Portanto, o resultado é 50.
+
+No entanto, é possível alterar a ordem de execução dos operadores usando parênteses. Qualquer expressão entre parênteses é avaliada primeiro. 
+
+Em resumo, a ordem de precedência dos operadores em Java é uma regra fundamental para avaliar expressões, mas é possível alterá-la usando parênteses para garantir que as operações sejam executadas na ordem desejada.
+
+Operador ternário)
+O operador condicional (também chamado de operador ternário) é um operador em Java que permite fazer uma avaliação condicional em uma única linha de código. Ele é representado pelo símbolo ? : e permite que você avalie uma condição e retorne um valor com base em seu resultado.
+
+Sintaxe básica:
+condição ? expressão1 : expressão2
+O operador condicional avalia a condição e retorna a expressão1 se a condição for verdadeira (true) e a expressão2 se a condição for falsa (false). 
