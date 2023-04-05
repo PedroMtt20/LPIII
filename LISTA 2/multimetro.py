@@ -5,7 +5,7 @@ def main():
     medicoes = []
 
     for i in range(tam):
-        valor = float(input("Digite o valor da medicao: "))
+        valor = float(input("Digite o valor da medicao {}: ".format(i+1)))
         media+=valor
         medicoes.append(valor)
         
