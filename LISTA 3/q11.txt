@@ -1,0 +1,54 @@
+modelo LivroDeBiblioteca
+início do modelo
+
+    dado titulo, autor, editora, codigo, anoPublicacao, disponivel;
+    dado nomeLeitorEmprestimo;
+    dado dataDevolucaoEmprestimo;
+
+    operação cadastraLivro(umTitulo, umAutor, umaEditora, umCodigo, umAnoPublicacao)
+    início
+        titulo = umTitulo;
+        autor = umAutor;
+        editora = umaEditora;
+        codigo = umCodigo;
+        anoPublicacao = umAnoPublicacao;
+        disponivel = verdadeiro;
+    fim
+
+    operação emprestaLivro(nomeLeitor)
+    início
+        se(disponivel)
+        início
+            nomeLeitorEmprestimo = nomeLeitor;
+            dataDevolucaoEmprestimo = DataAtual() + 7; // Data de devolução é daqui 7 dias
+            disponivel = falso;
+        fim
+    fim
+
+    operação devolveLivro()
+    início
+        se(!disponivel)
+        início
+            nomeLeitorEmprestimo = "";
+            dataDevolucaoEmprestimo = "";
+            disponivel = verdadeiro;
+        fim
+    fim
+
+    operação exibeInformacoes()
+    início
+        imprime "Título: " + titulo;
+        imprime "Autor: " + autor;
+        imprime "Editora: " + editora;
+        imprime "Código: " + codigo;
+        imprime "Ano de publicação: " + anoPublicacao;
+        se(disponivel)
+            imprime "Disponível para empréstimo";
+        senão
+        início
+            imprime "Emprestado para: " + nomeLeitorEmprestimo;
+            imprime "Data de devolução: " + dataDevolucaoEmprestimo.mostraData();
+        fim
+    fim
+
+fim do modelo

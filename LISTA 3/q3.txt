@@ -1,0 +1,20 @@
+modelo LampadaAjustavel
+inicio do modelo
+	dado luminosidade: real
+
+	operacao ajustaLuminosidade(_luminosidade: real)
+	inicio
+		se(_luminosidade < 0) então
+			luminosidade = 0
+		senão se(_luminosidade > 100) então
+			luminosidade = 100
+		senão
+			luminosidade = _luminosidade
+		fim-se
+	fim;
+
+	operacao mostraEstado()
+	inicio
+		imprime "A lâmpada está com " + luminosidade + "% de luminosidade";
+	fim;
+fim do modelo

@@ -1,0 +1,30 @@
+modelo Lampada
+inicio do modelo
+	dado estadoLampada
+
+	operacao acende()
+	inicio
+		estadoLampada = aceso;
+	fim;
+
+	operacao apaga()
+	inicio
+		estadoLampada = apagado;
+	fim
+
+	operacao mostraEstado()
+	inicio
+        se(estadoLampada == aceso)
+            imprime "A lâmpada está acesa";
+        senão
+            imprime "A lâmpada está apagada";
+	fim;
+
+    operacao estaLigada() retorna booleano
+    inicio
+        se(estadoLampada == aceso)
+            retorne verdadeiro;
+        senão
+            retorne falso;
+    fim;
+fim do modelo

@@ -1,0 +1,58 @@
+modelo Lampada
+inicio do modelo
+    dado preco: real
+    dado potencia: inteiro
+    dado voltagem: real
+    dado corLuz: string
+    dado vidaUtil: inteiro
+
+	operacao setPreco(novoPreco: real)
+    inicio
+        preco = novoPreco
+    fim
+    
+    operacao getPreco() : real
+    inicio
+        retorne preco
+    fim
+
+    operacao setVoltagem(novaVoltagem: real)
+    inicio
+        real = novaVoltagem
+    fim
+    
+    operacao getPreco() : real
+    inicio
+        retorne preco
+    fim
+    
+    operacao setPotencia(novaPotencia: inteiro)
+    inicio
+        potencia = novaPotencia
+    fim
+    
+    operacao getPotencia() : inteiro
+    inicio
+        retorne potencia
+    fim
+    
+    operacao setCorLuz(novaCorLuz: string)
+    inicio
+        corLuz = novaCorLuz
+    fim
+    
+    operacao getCorLuz() : string
+    inicio
+        retorne corLuz
+    fim
+
+    operacao setVidaUtil(novaVidaUtil: inteiro)
+    inicio
+        vida_util = novaVidaUtil
+    fim
+    
+    operacao getVidaUtil() : inteiro
+    inicio
+        retorne vida_util
+    fim
+fim do modelo
