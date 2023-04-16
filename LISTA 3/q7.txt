@@ -1,0 +1,37 @@
+modelo HoraAproximada
+inicio do modelo
+    dado hora, minuto;
+
+    operacao defineHora(h, m)
+    inicio
+        hora = h;
+        minuto = m;
+    fim
+
+    operacao mostraHora()
+    inicio
+        imprime hora;
+        imprime ":";
+        imprime minuto;
+    fim
+
+    operacao avancaMinuto()
+    inicio
+        minuto = minuto + 1;
+        se(minuto == 60)
+        inicio
+            hora = hora + 1;
+            minuto = 0;
+            se(hora == 24)
+            inicio
+                hora = 0;
+            fim
+        fim
+    fim
+
+    operação avancaHora(qtdHoras)
+    início
+        hora = hora + qtdHoras;
+        se(hora > 23) hora = hora - 24;
+    fim
+fim do modelo

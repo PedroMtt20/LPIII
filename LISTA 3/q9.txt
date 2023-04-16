@@ -1,0 +1,20 @@
+modelo Livro
+início do modelo
+    dado título, autor, editora, anoPublicação;
+
+    operação cadastraLivro(umTítulo, umAutor, umaEditora, umAnoPublicação)
+    início
+        título = umTítulo;
+        autor = umAutor;
+        editora = umaEditora;
+        anoPublicação = umAnoPublicação;
+    fim
+
+    operação mostraDados()
+    início
+        imprime "Título: " + título;
+        imprime "Autor: " + autor;
+        imprime "Editora: " + editora;
+        imprime "Ano de publicação: " + anoPublicação;
+    fim
+fim do modelo

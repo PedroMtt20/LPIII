@@ -1,0 +1,25 @@
+modelo HoraPrecisa
+início do modelo
+
+    dado hora, minuto, segundo, centesimo;
+
+    operação defineHora(h, m, s, c)
+    início
+        hora = h;
+        minuto = m;
+        segundo = s;
+        centesimo = c;
+    fim
+
+    operação mostraHora()
+    início
+        imprime hora;
+        imprime ":";
+        imprime minuto;
+        imprime ":";
+        imprime segundo;
+        imprime ".";
+        imprime centesimo;
+    fim
+
+fim do modelo

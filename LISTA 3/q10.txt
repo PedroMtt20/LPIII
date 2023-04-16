@@ -1,0 +1,26 @@
+modelo LivroDeLivraria
+início do modelo
+    dado titulo, autor, editora, anoPublicacao, preco;
+
+    operação inicializaLivro(t, a, e, ano, p)
+    início
+        titulo = t;
+        autor = a;
+        editora = e;
+        anoPublicacao = ano;
+        preco = p;
+    fim
+
+    operação trocaPreco(novoPreco)
+    início
+        preco = novoPreco;
+    fim
+
+    operação exibePreco()
+    início
+        imprime "O preço do livro ";
+        imprime titulo;
+        imprime " é R$";
+        imprime preco;
+    fim
+fim do modelo
