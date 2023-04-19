@@ -1,0 +1,33 @@
+modelo Retangulo
+início do modelo
+
+    dado ponto1, ponto2;
+
+    operação inicializaRetangulo(x1, y1, x2, y2)
+    início
+        ponto1 = Ponto2D();
+        ponto2 = Ponto2D();
+        ponto1.setX(x1);
+        ponto1.setY(y1);
+        ponto2.setX(x2);
+        ponto2.setY(y2);
+    fim
+
+    operação calculaArea()
+    início
+        largura = abs(ponto2.x - ponto1.x);
+        altura = abs(ponto2.y - ponto1.y);
+        area = largura * altura;
+        retorna area;
+    fim
+
+    operação calculaPerimetro()
+    início
+        largura = abs(ponto2.getX() - ponto1.getX());
+        altura = abs(ponto2.getY() - ponto1.getY());
+        perimetro = 2 * (largura + altura);
+        retorna perimetro;
+    fim
+
+
+fim do modelo

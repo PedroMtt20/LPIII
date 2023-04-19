@@ -1,0 +1,75 @@
+modelo Data
+início do modelo
+
+	dado dia, mês, ano;
+
+	operação inicializaData(umDia, umMês, umAno)
+	início
+
+	se dataÉVálida(umDia, umMês, umAno)
+	início 
+		dia = umDia;
+		mês = umMês;
+		ano = umAno;
+	fim
+
+	senão
+	início
+		dia = 0;
+		mês = 0;
+		ano = 0;
+	fim
+	fim
+
+	operação dataÉVálida(umDia, umMês, umAno
+	início
+
+	se((dia>=1) e (dia<=31) e (mês>=1) e (mês<=12))
+		retorna verdadeiro;
+	senão
+		retorna falso;
+	fim
+
+	operação mostraData()
+	início
+		imprime dia;
+		imprime "/";
+		imprime mês;
+		imprime "/";
+		imprime ano;
+	fim
+
+    operação diaDaSemana(umDia, umMes, umAno)
+    início
+	se dataÉVálida(umDia, umMes, umAno) então
+		se umMes < 3 então
+			umMes += 12;
+			umAno -= 1;
+		fim-se
+		d = umDia;
+		m = umMes + 1;
+		k = umAno % 100;
+		j = umAno / 100;
+		h = (d + ((m+1)*26)/10 + k + k/4 + j/4 + 5*j) % 7;
+            escolha h faça
+                caso 0:
+                    retorna "Domingo";
+                caso 1:
+                    retorna "Segunda-feira";
+                caso 2:
+                    retorna "Terça-feira";
+                caso 3:
+                    retorna "Quarta-feira";
+                caso 4:
+                    retorna "Quinta-feira";
+                caso 5:
+                    retorna "Sexta-feira";
+                caso 6:
+                    retorna "Sábado";
+            fim-escolha
+	    senão
+		    retorna "Data inválida";
+	    fim-se
+    fim
+
+fim do modelo

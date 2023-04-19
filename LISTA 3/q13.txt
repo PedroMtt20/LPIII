@@ -1,0 +1,34 @@
+modelo Linha2D
+início do modelo
+
+    dado pontoA, pontoB; 
+
+    operação adicionaPonto(ponto) 
+    início
+        se pontoA == nulo então
+            pontoA = ponto
+        senão
+            pontoB = ponto
+        fim
+    fim
+
+    operação comprimento()
+    início
+        se pontoA == nulo ou pontoB == nulo então
+            retorna 0
+        senão
+            retorna ((pontoB.x - pontoA.x) ** 2 + (pontoB.y - pontoA.y) ** 2) ** 0.5
+        fim
+    fim
+
+    operação mostraLinha() 
+    início
+        se pontoA != nulo então
+            imprime "Ponto A: (" + pontoA.x + "," + pontoA.y + ")"
+        fim
+        se pontoB != nulo então
+            imprime "Ponto B: (" + pontoB.x + "," + pontoB.y + ")"
+        fim
+    fim
+
+fim do modelo

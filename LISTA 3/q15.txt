@@ -1,0 +1,58 @@
+modelo Data
+início do modelo
+
+	dado dia, mês, ano;
+
+	operação inicializaData(umDia, umMês, umAno)
+	início
+
+	se dataÉVálida(umDia, umMês, umAno)
+	início 
+		dia = umDia;
+		mês = umMês;
+		ano = umAno;
+	fim
+
+	senão
+	início
+		dia = 0;
+		mês = 0;
+		ano = 0;
+	fim
+	fim
+
+	operação dataÉVálida(umDia, umMês, umAno
+    início
+        se ((umMes >= 1) e (umMes <= 12)) então
+            se (umMes == 2) então
+                se (umAno % 4 == 0) então
+                    se (umAno % 100 == 0) e (umAno % 400 != 0) então
+                        retorna (umDia >= 1) e (umDia <= 28);
+                    senão
+                        retorna (umDia >= 1) e (umDia <= 29);
+                    fim-se
+                senão
+                    retorna (umDia >= 1) e (umDia <= 28);
+                fim-se
+            senão
+                se ((umMes == 4) ou (umMes == 6) ou (umMes == 9) ou (umMes == 11)) então
+                    retorna (umDia >= 1) e (umDia <= 30);
+                senão
+                    retorna (umDia >= 1) e (umDia <= 31);
+                fim-se
+            fim-se
+        senão
+            retorna falso;
+        fim-se
+    fim
+
+	operação mostraData()
+	início
+		imprime dia;
+		imprime "/";
+		imprime mês;
+		imprime "/";
+		imprime ano;
+	fim
+
+fim do modelo

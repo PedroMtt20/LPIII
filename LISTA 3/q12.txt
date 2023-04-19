@@ -1,0 +1,40 @@
+modelo Ponto2D
+início do modelo
+
+    dado x, y;
+
+    operação inicializaPonto2D(X, Y)
+    início
+        x = X;
+        y = Y;
+    fim
+
+    operação setX(novoX)
+    início
+        x = novoX;
+    fim
+
+    operação setY(novoY)
+    início
+        y = novoY;
+    fim
+
+    operação getX()
+    início
+        retorna x;
+    fim
+
+    operação getY()
+    início
+        retorna y;
+    fim
+
+    operação distancia(outroPonto)
+    início
+        deltaX = x - outroPonto.getX();
+        deltaY = y - outroPonto.getY();
+        distancia = raiz_quadrada(deltaX^2 + deltaY^2);
+        retorna distancia;
+    fim
+
+fim do modelo
