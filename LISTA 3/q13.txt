@@ -1,24 +1,40 @@
 modelo Linha2D
 início do modelo
 
-    dado pontoA, pontoB; 
+  dado pontoA, pontoB;
 
-    operação adicionaPonto(ponto) 
+    operação inicializaLinha(x1, y1, x2, y2)
     início
-        se pontoA == nulo então
-            pontoA = ponto
-        senão
-            pontoB = ponto
-        fim
+        pontoA = Ponto2D(x1, y1);
+        pontoB = Ponto2D(x2, y2);
+    fim
+
+    operação setPontoA(novoPonto)
+    início
+        pontoA = novoPonto;
+    fim
+
+    operação setPontoB(novoPonto)
+    início
+        pontoB = novoPonto;
+    fim
+
+    operação getPontoA()
+    início
+        retorna pontoA;
+    fim
+
+    operação getPontoB()
+    início
+        retorna pontoB;
     fim
 
     operação comprimento()
     início
-        se pontoA == nulo ou pontoB == nulo então
-            retorna 0
-        senão
-            retorna ((pontoB.x - pontoA.x) ** 2 + (pontoB.y - pontoA.y) ** 2) ** 0.5
-        fim
+        deltaX = pontoB.getX() - pontoA.getX();
+        deltaY = pontoB.getY() - pontoA.getY();
+        comprimento = raiz_quadrada(deltaX^2 + deltaY^2);
+        retorna comprimento;
     fim
 
     operação mostraLinha() 
