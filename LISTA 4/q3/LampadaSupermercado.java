@@ -61,8 +61,8 @@ public class LampadaSupermercado {
         return luminosidade;
     }
 
-    public void setLuminosidade(float luminosidade) {
-        this.luminosidade = luminosidade;
+    public void setLuminosidade(float _luminosidade) {
+        luminosidade = _luminosidade;
     }
 
     public void acende(){

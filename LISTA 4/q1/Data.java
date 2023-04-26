@@ -9,7 +9,7 @@ public class Data {
             this.mes = _mes;
             this.ano = _ano;
         } else {
-            System.out.println("Data inválida");
+            System.out.println("Data invalida");
         }
     }
 
@@ -19,12 +19,12 @@ public class Data {
 
     public void setDia(int _dia) {
         if(_dia >= 1 && _dia <= 31) this.dia = _dia;
-        else System.out.println("Dia inválido!");
+        else System.out.println("Dia invalido!");
     }
 
     public void setMes(int _mes) {
         if(_mes >= 1 && mes <= 12) this.mes = _mes;
-        else System.out.println("Mês inválido");
+        else System.out.println("Mes invalido");
     }
 
     public int getAno() {
@@ -65,7 +65,8 @@ public class Data {
 
     public void imprimirData() {
         String diaFormatado = String.format("%02d", dia);
-        System.out.println(diaFormatado + "/" + mes + "/" + ano);
+        String mesFormatado = String.format("%02d", mes);
+        System.out.println(diaFormatado + "/" + mesFormatado + "/" + ano);
     }
 
     public void imprimirDataExtenso(){
