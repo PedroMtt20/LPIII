@@ -6,7 +6,7 @@ public class Main {
         Ponto2D ponto2 = new Ponto2D(0, 0);
     
         ponto1.imprimirPonto(); // imprime (1.0,3.0)
-        ponto2.imprimirPonto(); // imprime (4.0,1.0)
+        ponto2.imprimirPonto(); // imprime (0.0,0.0)
     
         System.out.println("Ponto 1 esta no eixo X ? " + ponto1.isEixoX()); // imprime false
         System.out.println("Ponto 2 esta no eixo Y ? " + ponto2.isEixoY()); // imprime true
