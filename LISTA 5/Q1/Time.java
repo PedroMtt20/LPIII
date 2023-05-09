@@ -15,16 +15,18 @@ public class Time {
 
     int cron(Time outraHora) {
         int totalSegundos = 0;
-        if (outraHora.hora < hora && outraHora.min < min && outraHora.seg < seg) {
-            totalSegundos = (86400 - ((outraHora.hora * 3600) + (outraHora.min * 60) + outraHora.seg))
-                    + ((hora * 3600) + (min * 60) + seg);
+        int segundosOutraHora = (outraHora.hora * 3600) + (outraHora.min * 60) + outraHora.seg;
+        int segundosHoraAtual = (hora * 3600) + (min * 60) + seg;
+        
+        if (segundosOutraHora <= segundosHoraAtual) {
+            totalSegundos = segundosHoraAtual - segundosOutraHora;
         } else {
-            totalSegundos = (hora * 3600) + (min * 60) + seg;
-
-            return totalSegundos - ((outraHora.hora * 3600) + (outraHora.min * 60) + outraHora.seg);
+            totalSegundos = (24 * 3600 - segundosOutraHora) + segundosHoraAtual;
         }
-        return 0;
+        
+        return totalSegundos;
     }
+    
 
     void addSeconds(int secs) {
         seg += secs;

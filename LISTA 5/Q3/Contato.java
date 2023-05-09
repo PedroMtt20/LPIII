@@ -13,43 +13,54 @@ public class Contato {
         dataNascimento = _dataNascimento;
     }
 
-    public void inicializarContato(String _nome, String _email, String _telefone, String _dataNascimento) {
+    public void setNome(String _nome) {
+        if (_nome == null || _nome.trim().equals("")) {
+            throw new IllegalArgumentException("Nome inválido!");
+        }
         nome = _nome;
-        email = _email;
-        telefone = _telefone;
-        dataNascimento = _dataNascimento;
-    }
-
-    public void setDataNascimento(String _dataNascimento) {
-        dataNascimento = _dataNascimento;
     }
 
     public void setEmail(String _email) {
+        if (_email == null || !_email.contains("@")) {
+            throw new IllegalArgumentException("Email inválido!");
+        }
         email = _email;
     }
 
-    public void setNome(String _nome) {
-        nome = _nome;
-    }
-
     public void setTelefone(String _telefone) {
+        if (_telefone == null || _telefone.trim().equals("")) {
+            throw new IllegalArgumentException("Telefone inválido!");
+        }
         telefone = _telefone;
     }
 
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
+    public void setDataNascimento(String _dataNascimento) {
+        String[] data = _dataNascimento.split("/");
+        int dia = Integer.parseInt(data[0]);
+        int mes = Integer.parseInt(data[1]);
+        int ano = Integer.parseInt(data[2]);
 
-    public String getEmail() {
-        return email;
+        if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 1900 || ano > Calendar.getInstance().get(Calendar.YEAR)) {
+            throw new IllegalArgumentException("Data de nascimento inválida!");
+        }
+
+        dataNascimento = _dataNascimento;
     }
 
     public String getNome() {
         return nome;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public String getTelefone() {
         return telefone;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
     }
 
     public void imprimirContato() {

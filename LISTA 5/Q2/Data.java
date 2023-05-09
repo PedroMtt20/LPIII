@@ -22,9 +22,9 @@ public class Data {
         }
     }
 
-    public int howManyDays(Data outraData){
-        LocalDate dataAtual = LocalDate.of(mes, dia, ano);
-        LocalDate dataParametro = LocalDate.of(outraData.ano, outraData.mes, outraData.ano);
+    public int howManyDays(Data outraData) {
+        LocalDate dataAtual = LocalDate.of(ano, mes, dia);
+        LocalDate dataParametro = LocalDate.of(outraData.ano, outraData.mes, outraData.dia);
 
         long diferenca = ChronoUnit.DAYS.between(dataAtual, dataParametro);
 
