@@ -4,36 +4,28 @@ public class RoboSimples {
     private String nomeDoRobo;
     private int posicaoXAtual, posicaoYAtual;
     private String direcaoAtual;
-    private int indiceMapaRobo = 0;
     private Coordenadas coordinate;
     static private Coordenadas[] coordenadas = new Coordenadas[100];
     static private int tamanhoCoordenadas = 0;
 
     RoboSimples(String nome, int px, int py, String d) {
-        if (validaRobo(nome, d)) {
+        if (validaRobo(nome, d) && !verificaColisao(px, py, d, nome)) {
             nomeDoRobo = nome;
             direcaoAtual = d;
             posicaoXAtual = px;
             posicaoYAtual = py;
-            coordinate = new Coordenadas(px, py, d); // criar uma nova instância de Coordenadas
+            coordinate = new Coordenadas(px, py, d);
             coordenadas[tamanhoCoordenadas] = coordinate;
             tamanhoCoordenadas++;
         }
     }
-    
 
     RoboSimples(String nome) {
         this(nome, 0, 0, "N");
     }
 
     RoboSimples() {
-        this("Mbappé");
-    }
-
-    public void lista(){
-        for (int i = 0; i < tamanhoCoordenadas; i++) {
-            System.out.println("x: " + coordenadas[i].getX() + " y: " + coordenadas[i].getY() + " tam:" + i);
-        }
+        this("Megatron");
     }
 
     public boolean validaRobo(String nome, String d) {
@@ -49,10 +41,23 @@ public class RoboSimples {
 
     public boolean verificaColisao(int x, int y) {
         for (int i = 0; i < tamanhoCoordenadas; i++) {
-           // System.out.println("x: " + coordenadas[i].getX() + " y: " + coordenadas[i].getY() + " tam:" + i);
-            if (coordenadas[i] != null && x == coordenadas[i].getX()
-                    && y == coordenadas[i].getY() && direcaoAtual.equals(coordenadas[i].getDirecao())) {
-                System.out.println("Ja existe um robo nesta posicao");
+            if (coordenadas[i] != null
+                    && (x + posicaoXAtual) == coordenadas[i].getX()
+                    && (y + posicaoYAtual) == coordenadas[i].getY()
+                    && direcaoAtual.equals(coordenadas[i].getDirecao())) {
+                System.out.println("Nao  foi possivel mover o robo " + nomeDoRobo + ". Ja existe um robo nesta posicao.");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean verificaColisao(int x, int y, String direcao, String nome) {
+        for (int i = 0; i < tamanhoCoordenadas; i++) {
+            if (coordenadas[i] != null && (x + posicaoXAtual) == coordenadas[i].getX()
+                    && (y + posicaoYAtual) == coordenadas[i].getY()
+                    && direcao.equals(coordenadas[i].getDirecao())) {
+                System.out.println("Nao foi possivel instanciar o robo " + nome + ". Ja existe um robo nesta posicao.");
                 return true;
             }
         }
@@ -65,32 +70,32 @@ public class RoboSimples {
         } else {
             switch (direcaoAtual) {
                 case "N":
-                    if (x != 0)
-                        System.out.println("Para andar ao norte, o eixo x deve ser 0!");
+                    if (x != posicaoXAtual)
+                        System.out.println("Para andar ao norte, o eixo x deve ser constante!");
                     else {
                         posicaoYAtual += y;
                         coordinate.setY(posicaoYAtual);
                     }
                     break;
                 case "S":
-                    if (x != 0)
-                        System.out.println("Para andar ao sul, o eixo x deve ser 0!");
+                    if (x != posicaoXAtual)
+                        System.out.println("Para andar ao sul, o eixo x deve ser constante!");
                     else {
                         posicaoYAtual -= y;
                         coordinate.setY(posicaoYAtual);
                     }
                     break;
                 case "E":
-                    if (y != 0)
-                        System.out.println("Para andar ao leste, o eixo y deve ser 0!");
+                    if (y != posicaoYAtual)
+                        System.out.println("Para andar ao leste, o eixo y deve ser constante!");
                     else {
                         posicaoXAtual += x;
                         coordinate.setX(posicaoXAtual);
                     }
                     break;
                 case "O":
-                    if (y != 0)
-                        System.out.println("Para andar ao oeste, o eixo y deve ser 0!");
+                    if (y != posicaoYAtual)
+                        System.out.println("Para andar ao oeste, o eixo y deve ser constante!");
                     else {
                         posicaoXAtual -= x;
                         coordinate.setX(posicaoXAtual);
@@ -120,6 +125,8 @@ public class RoboSimples {
                     coordinate.setX(posicaoXAtual);
                     coordinate.setY(posicaoYAtual);
                     break;
+                default:
+                    System.out.println("Direcao invalida!");
             }
         }
     }
