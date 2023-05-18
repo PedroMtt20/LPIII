@@ -1,5 +1,3 @@
-// package LPIII.LISTA6.questao6;
-
 public class RoboSimples {
     private String nomeDoRobo;
     private int posicaoXAtual, posicaoYAtual;

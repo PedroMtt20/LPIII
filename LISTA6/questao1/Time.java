@@ -11,8 +11,8 @@ public class Time {
 
     public Time(int h) {
         this.hora = h;
-        this.hora = 0;
-        this.hora = 0;
+        this.min = 0;
+        this.seg = 0;
     }
 
     public Time(int h, int m) {
@@ -54,81 +54,62 @@ public class Time {
     void addTime(int secs) {
         seg += secs;
 
-        if (seg >= 60) {
-            int minToAdd = seg / 60;
-            seg = seg % 60;
-            min += minToAdd;
-        }
+        int minToAdd = seg / 60;
+        seg %= 60;
+        min += minToAdd;
 
-        if (min >= 60) {
-            int hourToAdd = min / 60;
-            min = min % 60;
-            hora += hourToAdd;
-        }
+        int hourToAdd = min / 60;
+        min %= 60;
+        hora += hourToAdd;
 
-        if (hora >= 24) {
-            hora = hora % 24;
-        }
+        hora %= 24;
     }
 
     void addTime(int m, int s) {
+        min += m;
         seg += s;
 
-        if (seg >= 60) {
-            int minToAdd = seg / 60;
-            seg = seg % 60;
-            min += minToAdd + m;
-        }
+        int hourToAdd = min / 60;
+        min %= 60;
+        hora += hourToAdd;
 
-        if (min >= 60) {
-            int hourToAdd = min / 60;
-            min = min % 60;
-            hora += hourToAdd;
-        }
+        int minToAdd = seg / 60;
+        seg %= 60;
+        min += minToAdd;
 
-        if (hora >= 24) {
-            hora = hora % 24;
-        }
+        hora %= 24;
     }
 
     void addTime(int h, int m, int s) {
+        hora += h;
+        min += m;
         seg += s;
 
-        if (seg >= 60) {
-            int minToAdd = seg / 60;
-            seg = seg % 60;
-            min += minToAdd + m;
-        }
+        int minToAdd = seg / 60;
+        seg %= 60;
+        min += minToAdd;
 
-        if (min >= 60) {
-            int hourToAdd = min / 60;
-            min = min % 60;
-            hora += hourToAdd + h;
-        }
+        int hourToAdd = min / 60;
+        min %= 60;
+        hora += hourToAdd;
 
-        if (hora >= 24) {
-            hora = hora % 24;
-        }
+        hora %= 24;
     }
 
     void addTime(Time obj) {
-        seg+= obj.seg;
+        hora += obj.hora;
+        min += obj.min;
+        seg += obj.seg;
 
-        if(seg >= 60){
-            int minToAdd = seg / 60;
-            seg = seg % 60;
-            min += minToAdd + obj.min;
-        }
+        int minToAdd = seg / 60;
+        seg %= 60;
+        min += minToAdd;
 
-        if(min >= 60){
-            int hourToAdd = min / 60;
-            min = min % 60;
-            hora = hourToAdd + obj.hora;
-        }
+        int hourToAdd = min / 60;
+        min %= 60;
+        hora += hourToAdd;
 
-        if(hora >= 24){
-            hora = hora % 24;
-        }
+        hora %= 24;
     }
 
     private boolean validateTime(int hora, int min, int seg) {

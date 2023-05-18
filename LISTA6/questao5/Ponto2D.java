@@ -1,5 +1,3 @@
-package LPIII.LISTA6.questao5;
-
 public class Ponto2D {
     private final double x;
     private final double y;

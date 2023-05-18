@@ -1,5 +1,3 @@
-package LPIII.LISTA6.questao5;
-
 public class Circulo {
     private double x;
     private double y;
