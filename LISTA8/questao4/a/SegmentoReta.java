@@ -3,6 +3,12 @@ public class SegmentoReta {
     private Ponto2D pontoFinal;
     private double dimensao;
 
+    SegmentoReta(Ponto2D p1, Ponto2D p2) {
+        pontoInicial = new Ponto2D(p1.getX(), p1.getY());
+        pontoFinal = new Ponto2D(p2.getX(), p2.getY());
+        dimensao = calculaDimensao();
+    }
+
     public double getDimensao() {
         return dimensao;
     }
@@ -25,12 +31,6 @@ public class SegmentoReta {
 
     public void setPontoInicial(Ponto2D pontoInicial) {
         this.pontoInicial = pontoInicial;
-    }
-
-    SegmentoReta(Ponto2D p1, Ponto2D p2) {
-        pontoInicial = new Ponto2D(p1.getX(), p1.getY());
-        pontoFinal = new Ponto2D(p2.getX(), p2.getY());
-        dimensao = calculaDimensao();
     }
 
     public void imprimeSegmentoReta() {
