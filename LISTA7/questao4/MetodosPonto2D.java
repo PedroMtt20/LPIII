@@ -1,4 +1,3 @@
-// package LISTA7.questao4;
 public class MetodosPonto2D {
 
     public static float distance(Ponto2D p1, Ponto2D p2){

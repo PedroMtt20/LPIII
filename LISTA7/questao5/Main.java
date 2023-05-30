@@ -4,50 +4,44 @@ public class Main {
     public static void main(String[] args) {
         double valorGramas = 500;
 
+        // Convertendo de gramas para outras unidades
         double valorKg = ConversorUnidade.gramasParaKg(valorGramas);
+        System.out.println(valorGramas + " gramas = " + valorKg + " kg");
+
         double valorLibras = ConversorUnidade.gramasParaLibras(valorGramas);
+        System.out.println(valorGramas + " gramas = " + valorLibras + " libras");
+
         double valorOnças = ConversorUnidade.gramasParaOnças(valorGramas);
+        System.out.println(valorGramas + " gramas = " + valorOnças + " onças");
 
-        System.out.println(valorGramas + " gramas equivalem a:");
-        System.out.println(valorKg + " kg");
-        System.out.println(valorLibras + " libras");
-        System.out.println(valorOnças + " oncas");
+        // Convertendo de kg para outras unidades
+        double valorGramas2 = ConversorUnidade.kgParaGramas(valorKg);
+        System.out.println(valorKg + " kg = " + valorGramas2 + " gramas");
 
-        System.out.println();
+        double valorLibras2 = ConversorUnidade.kgParaLibras(valorKg);
+        System.out.println(valorKg + " kg = " + valorLibras2 + " libras");
 
-        double valorGramasConvertido = ConversorUnidade.kgParaGramas(valorKg);
-        double valorLibrasConvertido = ConversorUnidade.kgParaLibras(valorKg);
-        double valorOnçasConvertido = ConversorUnidade.kgParaOnças(valorKg);
+        double valorOnças2 = ConversorUnidade.kgParaOnças(valorKg);
+        System.out.println(valorKg + " kg = " + valorOnças2 + " onças");
 
-        System.out.println(valorKg + " kg equivalem a:");
-        System.out.println(valorGramasConvertido + " gramas");
-        System.out.println(valorLibrasConvertido + " libras");
-        System.out.println(valorOnçasConvertido + " oncas");
+        // Convertendo de libras para outras unidades
+        double valorGramas3 = ConversorUnidade.librasParaGramas(valorLibras);
+        System.out.println(valorLibras + " libras = " + valorGramas3 + " gramas");
 
-        System.out.println();
+        double valorKg2 = ConversorUnidade.librasParaKg(valorLibras);
+        System.out.println(valorLibras + " libras = " + valorKg2 + " kg");
 
-        double valorLibras2 = 10;
+        double valorOnças3 = ConversorUnidade.librasParaOnças(valorLibras);
+        System.out.println(valorLibras + " libras = " + valorOnças3 + " onças");
 
-        double valorGramas2 = ConversorUnidade.librasParaGramas(valorLibras2);
-        double valorKg2 = ConversorUnidade.librasParaKg(valorLibras2);
-        double valorOnças2 = ConversorUnidade.librasParaOnças(valorLibras2);
+        // Convertendo de onças para outras unidades
+        double valorGramas4 = ConversorUnidade.onçasParaGramas(valorOnças);
+        System.out.println(valorOnças + " onças = " + valorGramas4 + " gramas");
 
-        System.out.println(valorLibras2 + " libras equivalem a:");
-        System.out.println(valorGramas2 + " gramas");
-        System.out.println(valorKg2 + " kg");
-        System.out.println(valorOnças2 + " oncas");
+        double valorKg3 = ConversorUnidade.onçasParaKg(valorOnças);
+        System.out.println(valorOnças + " onças = " + valorKg3 + " kg");
 
-        System.out.println();
-
-        double valorOnças3 = 100;
-
-        double valorGramas3 = ConversorUnidade.onçasParaGramas(valorOnças3);
-        double valorKg3 = ConversorUnidade.onçasParaKg(valorOnças3);
-        double valorLibras3 = ConversorUnidade.onçasParaLibras(valorOnças3);
-
-        System.out.println(valorOnças3 + " onças equivalem a:");
-        System.out.println(valorGramas3 + " gramas");
-        System.out.println(valorKg3 + " kg");
-        System.out.println(valorLibras3 + " libras");
+        double valorLibras3 = ConversorUnidade.onçasParaLibras(valorOnças);
+        System.out.println(valorOnças + " onças = " + valorLibras3 + " libras");
     }
 }

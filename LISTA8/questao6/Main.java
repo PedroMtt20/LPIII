@@ -5,6 +5,5 @@ public class Main {
         Contato contato = new Contato("Pedro", "pedro@gmail.com", "88888888" ,"31/10/2002");
         Agendamento agendamento = new Agendamento(data, time, contato);
         agendamento.printAgendamento();
-
     }
 }

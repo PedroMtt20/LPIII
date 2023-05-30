@@ -1,5 +1,3 @@
-// package LISTA7.questao5;
-
 public class ConversorUnidade {
     public static double gramasParaKg(double valor){
         return valor / 1000;
